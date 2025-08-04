@@ -1,0 +1,48 @@
+name: epic
+title_template: "[Epic] {epic_title}"
+description_template: |
+  ## Epic Overview
+  {overview}
+  
+  ## Business Value
+  {business_value}
+  
+  ## Success Criteria
+  {success_criteria}
+  
+  ## Scope
+  ### In Scope
+  {in_scope}
+  
+  ### Out of Scope
+  {out_scope}
+  
+  ## Timeline
+  - **Start Date**: {start_date}
+  - **Target Completion**: {target_date}
+  
+  ## Dependencies
+  {dependencies}
+  
+  ## Risks and Mitigation
+  {risks}
+  
+  ## Related Issues
+  <!-- Child issues will be linked here -->
+
+default_labels:
+  - epic
+  - planning
+default_issue_type: epic
+required_variables:
+  - epic_title
+  - overview
+  - business_value
+  - success_criteria
+optional_variables:
+  - in_scope
+  - out_scope
+  - start_date
+  - target_date
+  - dependencies
+  - risks

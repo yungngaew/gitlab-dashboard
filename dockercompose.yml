@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gitlab-analytics-backend
+    # ports:
+    #   - "2102:8000"
+    env_file:
+      - backend/.env
+#    restart: unless-stopped
+#    working_dir: /app
+    networks:
+      - gitlab_dashboard_network
+
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    container_name: gitlab-activity-frontend
+    # env_file: 
+    #   - .env
+    ports:
+      - "11433:3000"
+    networks:
+      - gitlab_dashboard_network
+networks:
+  gitlab_dashboard_network:
+    driver: bridge

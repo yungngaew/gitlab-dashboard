@@ -1,0 +1,51 @@
+name: research
+title_template: "[Research] {research_topic}"
+description_template: |
+  ## Research Objective
+  {objective}
+  
+  ## Background
+  {background}
+  
+  ## Research Questions
+  {research_questions}
+  
+  ## Methodology
+  {methodology}
+  
+  ## Expected Deliverables
+  {deliverables}
+  
+  ## Resources Needed
+  {resources}
+  
+  ## Timeline
+  - **Research Phase**: {research_duration}
+  - **Analysis Phase**: {analysis_duration}
+  - **Documentation**: {documentation_duration}
+  
+  ## Success Metrics
+  {success_metrics}
+  
+  ## References
+  {references}
+
+default_labels:
+  - research
+  - analysis
+  - documentation
+default_issue_type: research
+required_variables:
+  - research_topic
+  - objective
+  - research_questions
+  - deliverables
+optional_variables:
+  - background
+  - methodology
+  - resources
+  - research_duration
+  - analysis_duration
+  - documentation_duration
+  - success_metrics
+  - references

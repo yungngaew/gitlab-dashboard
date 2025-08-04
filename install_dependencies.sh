@@ -1,0 +1,23 @@
+#!/bin/bash
+# Script to install dependencies for the rename_branches.py script
+
+echo "Installing Python dependencies for rename_branches.py..."
+echo ""
+echo "This script needs to install pip and Python packages."
+echo "You have two options:"
+echo ""
+echo "1. Install using system package manager (requires sudo):"
+echo "   sudo apt-get update && sudo apt-get install -y python3-pip python3-dotenv python3-tqdm"
+echo ""
+echo "2. Install pip locally (without sudo):"
+echo "   wget https://bootstrap.pypa.io/get-pip.py"
+echo "   python3 get-pip.py --user"
+echo "   export PATH=$HOME/.local/bin:$PATH"
+echo "   python3 -m pip install --user -r requirements.txt"
+echo ""
+echo "After installation, you can run:"
+echo "   python3 scripts/rename_branches.py --help"
+echo ""
+echo "For a dry run (preview changes):"
+echo "   python3 scripts/rename_branches.py --dry-run"
+echo ""

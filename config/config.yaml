@@ -1,0 +1,195 @@
+# GitLab Tools Configuration
+# This file contains default configuration values
+# Environment variables will override these settings
+
+gitlab:
+  # GitLab instance URL
+  url: "https://gitlab.com"
+  
+  # GitLab API token (from environment variable)
+  token: "${GITLAB_TOKEN}"
+  
+  # Group IDs to analyze
+  group_ids:
+    - 1721  # AI-ML-Services
+    - 1267  # Research Repos
+    - 1269  # Other group
+  
+  # API rate limiting (requests per second)
+  rate_limit: 3
+  
+  # Request timeout in seconds
+  timeout: 30
+  
+  # Number of retries for failed requests
+  retry_count: 3
+  
+  # Number of items per page for pagination
+  page_size: 100
+  
+  # Verify SSL certificates
+  verify_ssl: true
+
+# Email configuration for reports
+email:
+  recipients:
+    - "team-lead@company.com"
+    - "project-manager@company.com"
+
+teams:
+   # Teams webhook URL (from environment variable)
+  webhook_url: "${TEAMS_WEBHOOK_URL}"
+  
+  # Channel name for context
+  channel: "team-updates"
+  
+  # Message format options
+  format:
+    include_charts: true
+    color_scheme: "default"  # or "light"/"dark"
+    compact_view: false
+
+history:
+  # Save reports to dashboard
+  save_to_dashboard: true
+  
+  # Directory for report history
+  directory: "reports/history"
+  
+  # Days to keep old reports
+  retention_days: 90
+  
+  # Formats to save
+  formats:
+    - json     # Raw data
+    - html     # Rendered dashboard
+
+features:
+  # Enable dry-run mode by default
+  dry_run: false
+  
+  # Create backups before destructive operations
+  backup: true
+  
+  # Number of concurrent workers for parallel operations
+  concurrent_workers: 5
+  
+  # Show progress bars for long operations
+  show_progress: true
+  
+  # Enable colored output
+  colored_output: true
+
+branch_operations:
+  # Default branch names for rename operations
+  default_old_branch: "trunk"
+  default_new_branch: "main"
+  
+  # Skip protected branches
+  skip_protected: true
+  
+  # Update merge request target branches
+  update_merge_requests: true
+
+issue_operations:
+  # Default labels to add to all issues
+  default_labels: []
+  
+  # Template directory for issue templates
+  template_dir: "templates/issues"
+  
+  # Add creation timestamp to issue description
+  add_timestamp: true
+
+# Board label mappings for workflow state detection
+board_label_mappings:
+  to_do:
+    - "To Do"
+    - "TODO"
+    - "Backlog"
+    - "Open"
+    - "New"
+    - "To-Do"
+    - "Ready"
+  
+  in_progress:
+    - "In Progress"
+    - "Doing" 
+    - "In Development"
+    - "InProgress"
+    - "WIP"
+    - "Work In Progress"
+    - "Active"
+    - "Started"
+  
+  in_review:
+    - "In Review"
+    - "Code Review"
+    - "Review"
+    - "Testing"
+    - "QA"
+    - "Awaiting Review"
+    - "Under Review"
+  
+  blocked:
+    - "Blocked"
+    - "On Hold"
+    - "Waiting"
+    - "Pending"
+    - "Stalled"
+  
+  done:
+    - "Done"
+    - "Closed"
+    - "Complete"
+    - "Completed"
+    - "Finished"
+    - "Resolved"
+
+# Groups to process (can be overridden via CLI)
+groups:
+  - name: "AI-ML-Services"
+    filters:
+      exclude_archived: true
+      min_activity_days: 30
+  
+  - name: "Research Repos"
+    filters:
+      exclude_archived: true
+      min_activity_days: 60
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: INFO
+  
+  # Log file path (relative to project root)
+  file: "logs/gitlab-tools.log"
+  
+  # Maximum log file size in MB
+  max_size: 10
+  
+  # Number of backup files to keep
+  backup_count: 5
+  
+  # Log format
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Output configuration
+output:
+  # Default output directory for generated files
+  directory: "outputs"
+  
+  # Formats to generate (json, csv, markdown)
+  formats:
+    - json
+    - csv
+    - markdown
+  
+  # Include timestamp in output filenames
+  timestamp_format: "%Y%m%d_%H%M%S"
+
+# Board service configuration
+board_service:
+  # Allow open issues to be marked as "done" based on labels
+  allow_open_issues_as_done: false

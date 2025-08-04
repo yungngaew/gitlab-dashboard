@@ -1,0 +1,23 @@
+requests>=2.26.0
+python-dotenv>=0.19.0
+typing>=3.7.4.3
+PyYAML>=5.4.1
+tqdm>=4.62.0
+click>=8.0.0
+rich>=10.0.0
+
+# CLI-specific dependencies
+prompt-toolkit>=3.0.0
+colorama>=0.4.0
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.0.0
+pytest-asyncio>=0.20.0
+
+# Analytics dependencies
+matplotlib>=3.5.0
+pandas>=1.4.0
+tabulate>=0.9.0
+openpyxl>=3.0.0  # For Excel export 

@@ -1,0 +1,209 @@
+.TH GLT 1 "2024" "GitLab Tools CLI" "User Commands"
+.SH NAME
+glt \- GitLab Tools CLI for natural language GitLab management
+.SH SYNOPSIS
+.B glt
+[\fIoptions\fR]
+.SH DESCRIPTION
+The GitLab Tools CLI (glt) is a unified command-line interface that simplifies executing GitLab management operations through natural language-like commands. Users can type commands in plain English to perform complex GitLab operations without remembering specific script names or parameters.
+
+.SH OPTIONS
+.TP
+.B \-\-version
+Show version information and exit.
+.TP
+.B \-\-debug
+Enable debug logging mode.
+.TP
+.B \-\-non\-interactive
+Run in non-interactive mode (for testing).
+.TP
+.B \-h, \-\-help
+Show help message and exit.
+
+.SH INTERACTIVE COMMANDS
+When running in interactive mode, the following commands are available:
+
+.TP
+.B create issues [for project ID] [from folder]
+Create GitLab issues from markdown files.
+.br
+Examples:
+.br
+\fBcreate issues for project 123\fR
+.br
+\fBcreate issues from issues_folder\fR
+
+.TP
+.B rename branches [in group] [from old to new]
+Rename branches in GitLab groups or projects.
+.br
+Examples:
+.br
+\fBrename branches in AI-ML-Services from trunk to main\fR
+.br
+\fBrename branches from master to main\fR
+
+.TP
+.B generate dashboard [for groups IDs]
+Generate executive dashboard for groups.
+.br
+Examples:
+.br
+\fBgenerate dashboard for groups 1,2,3\fR
+.br
+\fBgenerate executive dashboard\fR
+
+.TP
+.B weekly report [for groups IDs] [email to addresses]
+Generate weekly productivity reports.
+.br
+Examples:
+.br
+\fBweekly report for groups 1,2,3\fR
+.br
+\fBproductivity report email to team@company.com\fR
+
+.TP
+.B analyze project [IDs]
+Analyze GitLab projects and generate insights.
+.br
+Examples:
+.br
+\fBanalyze project 123\fR
+.br
+\fBanalyze projects 123,456,789\fR
+
+.TP
+.B export analytics [for projects IDs]
+Export analytics data for projects.
+.br
+Examples:
+.br
+\fBexport analytics for projects 123,456\fR
+.br
+\fBexport analytics\fR
+
+.TP
+.B sync issues [for project ID] [from folder]
+Sync issues between local files and GitLab.
+.br
+Examples:
+.br
+\fBsync issues for project 123\fR
+.br
+\fBsync issues from issues_folder\fR
+
+.TP
+.B send file to email
+Send report files via email.
+.br
+Examples:
+.br
+\fBsend report.pdf to team@company.com\fR
+.br
+\fBsend weekly_report.html to manager@company.com\fR
+
+.SH SPECIAL COMMANDS
+The following special commands are available in interactive mode:
+
+.TP
+.B help [command]
+Show help for all commands or a specific command.
+
+.TP
+.B history
+Show command execution history.
+
+.TP
+.B dry-run
+Toggle dry-run mode to test commands without executing them.
+
+.TP
+.B status
+Show current CLI status and statistics.
+
+.TP
+.B clear
+Clear the terminal screen.
+
+.TP
+.B exit, quit, q
+Exit the CLI.
+
+.SH FEATURES
+.TP
+.B Natural Language Processing
+Commands can be typed in natural language with fuzzy matching support.
+
+.TP
+.B Tab Completion
+Use Tab key for auto-completion of commands and parameters.
+
+.TP
+.B Command History
+Use arrow keys (↑/↓) to navigate through command history.
+
+.TP
+.B Colored Output
+Commands produce colored output for better readability.
+
+.TP
+.B Progress Indicators
+Long-running operations show real-time progress.
+
+.TP
+.B Error Handling
+Friendly error messages with suggestions for corrections.
+
+.SH FILES
+.TP
+.B ~/.glt_history
+Command history file.
+
+.TP
+.B ~/.glt/glt.log
+Default log file location (when debug mode is enabled).
+
+.SH EXAMPLES
+Start the interactive CLI:
+.br
+\fBglt\fR
+
+Show version:
+.br
+\fBglt --version\fR
+
+Run with debug logging:
+.br
+\fBglt --debug\fR
+
+Example interactive session:
+.br
+\fB$ glt\fR
+.br
+\fBglt> create issues for project 123\fR
+.br
+\fBglt> weekly report for groups 1,2,3 email to team@company.com\fR
+.br
+\fBglt> help create\fR
+.br
+\fBglt> exit\fR
+
+.SH EXIT STATUS
+.TP
+.B 0
+Successful execution.
+.TP
+.B 1
+General error.
+
+.SH BUGS
+Report bugs to the project repository or maintainer.
+
+.SH SEE ALSO
+.BR gitlab (1),
+.BR git (1)
+
+.SH AUTHORS
+GitLab Tools CLI was written for efficient GitLab management operations. 

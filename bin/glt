@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# GitLab Tools CLI (glt) - Shell wrapper
+#
+# This script provides a system-wide entry point for the GitLab Tools CLI.
+# It can be symlinked to /usr/local/bin/glt or similar for global access.
+#
+
+# Find the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# The project root is one level up from bin/
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Path to the main glt.py script
+GLT_SCRIPT="$PROJECT_ROOT/glt.py"
+
+# Check if the main script exists
+if [[ ! -f "$GLT_SCRIPT" ]]; then
+    echo "Error: GitLab Tools CLI script not found at $GLT_SCRIPT" >&2
+    echo "Please ensure the installation is complete." >&2
+    exit 1
+fi
+
+# Check if Python 3 is available
+if command -v python3 >/dev/null 2>&1; then
+    PYTHON_CMD="python3"
+elif command -v python >/dev/null 2>&1; then
+    # Check if python is actually Python 3
+    if python -c "import sys; sys.exit(0 if sys.version_info[0] >= 3 else 1)" 2>/dev/null; then
+        PYTHON_CMD="python"
+    else
+        echo "Error: Python 3 is required but not found." >&2
+        echo "Please install Python 3.7 or later." >&2
+        exit 1
+    fi
+else
+    echo "Error: Python is not installed or not in PATH." >&2
+    echo "Please install Python 3.7 or later." >&2
+    exit 1
+fi
+
+# Execute the main script with all arguments
+exec "$PYTHON_CMD" "$GLT_SCRIPT" "$@"

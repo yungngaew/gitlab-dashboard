@@ -1,0 +1,64 @@
+name: ml-experiment
+title_template: "[ML Experiment] {experiment_name}"
+description_template: |
+  ## Experiment Overview
+  {overview}
+  
+  ## Hypothesis
+  {hypothesis}
+  
+  ## Dataset
+  - **Source**: {data_source}
+  - **Size**: {data_size}
+  - **Features**: {features}
+  
+  ## Model Architecture
+  {model_architecture}
+  
+  ## Training Configuration
+  - **Framework**: {framework}
+  - **Hardware**: {hardware}
+  - **Hyperparameters**:
+  {hyperparameters}
+  
+  ## Evaluation Metrics
+  {metrics}
+  
+  ## Baseline Performance
+  {baseline}
+  
+  ## Success Criteria
+  {success_criteria}
+  
+  ## Experiment Tracking
+  - **MLflow Run ID**: {mlflow_run_id}
+  - **Weights & Biases**: {wandb_link}
+  
+  ## Results
+  <!-- To be filled after experiment completion -->
+  
+  ## Next Steps
+  <!-- To be determined based on results -->
+
+default_labels:
+  - ml-experiment
+  - ai-ml-services
+  - research
+default_issue_type: task
+required_variables:
+  - experiment_name
+  - overview
+  - hypothesis
+  - model_architecture
+  - metrics
+optional_variables:
+  - data_source
+  - data_size
+  - features
+  - framework
+  - hardware
+  - hyperparameters
+  - baseline
+  - success_criteria
+  - mlflow_run_id
+  - wandb_link
